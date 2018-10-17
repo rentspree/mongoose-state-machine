@@ -1,12 +1,21 @@
 language: node_js
 services:
-  - mongodb
+- mongodb
 node_js:
-  - v8
+- v8
 script:
-  - npm run coverage
-  - npm run build
+- npm run coverage
+- npm run build
 cache:
-  - yarn
+- yarn
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: junrai82@gmail.com
+  api_key:
+    secure: jiobDRf/NqQBdwW5L+0sRu32zxM+ZdzJnVaRnH8XoFnxB5wYeaArMKqUik8sN/PjauyUozZHoHVCcYgvfJki0LsQI0STCNra1Kq+d81japqI4JNYBfEMyjSjsNRUzEh+YVGOTCcF4qkg+FcwU0dmMLc3hv/+4qCOW3iU6UfoLt70Vl8zDkHxPgMVqwbGyLRBx/E+mo86F+oKrzGuLGqaW1Eew1RXcdSFMwQLkAXmD3fJOlgQqEHtWeA9wbBCYjIZCoGSQsz4eg0RI73uDZgCCNpB0x9FoVLdLv4L2vxxG0//q8DmI8DCscMavY/WW/bQBPtkDf9UexxB/uqrDDYyssJDs8e/eDY9aWToOJKqvvv9XNzUax0TVT5gxgPvzsTEgxOS2R5jXGik0K/9mksJtCCZdq019qFuGpPRPMyZYI6s8unkUHudBWefvGaDGXHSJ8Bk9AinIWe2Ds8e1A+9JEYTCJYUfDjoaTUWn/RpT23IYzE6oJKRJ1pxDPBx7Btx6w+XZmNWFo5JPJ/DtsKIVTUMI+hyDxdNfiPsTL++1Zg+7qaPD4SpzmpXNQRPm47E8+BN1lM26aM1ibRzG6xvnrc3liZCEQOwRXzqSTLpfYOQgKIq/9dnQ5rEDRfS5y9Gg5/5dfuyT/4stYuMx64/2bro1cwBvim/NmjTxZSBvuc=
+  on:
+    tags: true
+    repo: rentspree/mongoose-state-machine

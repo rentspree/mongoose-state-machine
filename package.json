@@ -98,5 +98,8 @@
       "text-summary",
       "lcov"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,5 +1,6 @@
 dist
 yarn.lock
+coverage.lcov
 # Created by https://www.gitignore.io/api/osx,node,code,windows,sublimetext
 
 ### Code ###

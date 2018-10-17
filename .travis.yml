@@ -1,9 +1,11 @@
 language: node_js
+services:
+  - mongodb
 node_js:
   - v8
 script:
-  - yarn lint
-  - yarn test --coverage
+  - npm run lint && npm test
+  - npm run build
 cache:
   - yarn
 after_success:

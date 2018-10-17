@@ -26,8 +26,7 @@
     "prebuild": "npm run docs && npm run clean && npm run flowbuild",
     "build": "babel src -d dist",
     "preversion": "npm run lint && npm test && npm run build",
-    "version": "standard-changelog && git add CHANGELOG.md",
-    "postpublish": "git push origin master --follow-tags"
+    "version": "standard-changelog && git add CHANGELOG.md"
   },
   "husky": {
     "hooks": {

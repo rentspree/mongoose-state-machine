@@ -1,0 +1,4 @@
+# mocha.opts
+
+    --require @babel/register
+    --require ./test/setup.js

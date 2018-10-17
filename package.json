@@ -1,0 +1,87 @@
+{
+  "name": "mongoose-state-machine",
+  "version": "0.0.1",
+  "description": "A mongoose plugin fomr Javascript State Machine",
+  "license": "MIT",
+  "repository": "rentspree/mongoose-state-machine",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Putt",
+    "email": "potsawee@rentspree.com",
+    "url": "https://github.com/rentspree"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "npm run lint && cross-env NODE_ENV=test mocha --recursive \"test/**/*.test.js\"",
+    "coverage": "npm test -- --coverage",
+    "postcoverage": "opn coverage/lcov-report/index.html",
+    "lint": "eslint .",
+    "flow": "flow check",
+    "docs": "documentation readme src --section=API",
+    "postdocs": "git add README.md",
+    "clean": "rimraf dist",
+    "flowbuild": "flow-copy-source src dist",
+    "prebuild": "npm run docs && npm run clean && npm run flowbuild",
+    "build": "babel src -d dist",
+    "preversion": "npm run lint && npm test && npm run build",
+    "version": "standard-changelog && git add CHANGELOG.md",
+    "postpublish": "git push origin master --follow-tags"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "mongoose-state-machine"
+  ],
+  "dependencies": {
+    "debug": "^4.1.0",
+    "javascript-state-machine": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.6.0",
+    "bluebird": "^3.5.2",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chaid": "^1.0.2",
+    "cross-env": "^5.2.0",
+    "documentation": "vicapow/documentation#a560a4373c301e37251f13e045811932c9c4ac01",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-flowtype-errors": "^3.5.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "factory-girl": "^5.0.2",
+    "flow-bin": "^0.81.0",
+    "flow-copy-source": "^2.0.2",
+    "husky": "^1.0.0-rc.14",
+    "lint-staged": "^7.2.2",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.3.4",
+    "opn-cli": "^3.1.0",
+    "prettier": "^1.14.2",
+    "rimraf": "^2.6.2",
+    "standard-changelog": "^2.0.1"
+  }
+}

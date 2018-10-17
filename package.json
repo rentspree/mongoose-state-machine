@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-state-machine",
+  "name": "@rentspree/mongoose-state-machine",
   "version": "0.0.1",
   "description": "A mongoose plugin fomr Javascript State Machine",
   "license": "MIT",
@@ -11,8 +11,7 @@
     "url": "https://github.com/rentspree"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "test": "npm run lint && cross-env NODE_ENV=test mocha --recursive \"test/**/*.test.js\"",

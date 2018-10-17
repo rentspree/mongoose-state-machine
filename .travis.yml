@@ -4,9 +4,8 @@ services:
 node_js:
   - v8
 script:
-  - npm run lint && npm test
-  - npm run build
   - npm run coverage
+  - npm run build
 cache:
   - yarn
 after_success:

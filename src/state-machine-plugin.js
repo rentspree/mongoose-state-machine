@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import StateMachine from "javascript-state-machine"
 
-// TODO:- move this to an external library
 export default function createStateMachineModel(schema, options) {
   let { statusFieldName } = options
   if (!statusFieldName) statusFieldName = "status"

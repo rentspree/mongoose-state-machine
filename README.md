@@ -105,9 +105,44 @@ console.log(person.status)
 
 The Javascript State Machine API is available for the `person` model here and it will behave like [Applying State Machine Behavior to Existing Objects](https://github.com/jakesgordon/javascript-state-machine/blob/master/docs/state-machine-factory.md#applying-state-machine-behavior-to-existing-objects).
 
-***Important Note*** The important thing to notice here is that, this plugin *will not* manipulate the data at the database level. The goal is to make Mongoose model work together with Javascript State Machine. From the example above, the user must make sure to run `person.save()` anywhere in this code. The purpose for this is to delegate database saving decision to the developer.
+***Important Note*** The important thing to notice here is that, this plugin *will not* manipulate the data at the database level. The goal is to make Mongoose model work together with Javascript State Machine. From the example above, the code must run `person.save()` in order to update the latest status to the database. The purpose for this is to delegate database saving decision to the developer.
 
 When the `person.save()` happen, it will move the value in the `state` of the Javascript State Machine into the field `status` which relate to value in the database.
+
+#### New Model
+
+Things get a little different while creating new model. According to Mongoose, it is not recommended to use [middleware](https://mongoosejs.com/docs/middleware.html) instead of overriding the model method.
+
+Normally, when creating new model in Mongoose
+
+```js
+const person = new Person({firstName: "hero"})
+// this still work
+person.melt()
+// error
+```
+
+Instead, use the method provided by the plugin
+```js
+const person = Person.new({firstName: "hero"})
+person.melt()
+console.log(person.state)
+// liquid
+```
+
+## Options
+
+These are the option available when defining plugin
+
+```js
+personSchema.plugin(stateMachinePlugin, options )
+```
+
+
+Option | description | default 
+---------|----------|---------
+ `stateMachine` | The state machine definition object which will be passed to `new StateMachine()` of [Javascript State Machine](https://github.com/jakesgordon/javascript-state-machine#usage) | null 
+  `statusFieldName` | The state field name in the database. This is the initial state for the state machine when getting Mongoose model from the database, also it's the field that the current state will be update upon `save()` | "status" 
 
 ## API
 

@@ -63,14 +63,16 @@ describe("StateMachine Plugin Mongoose", () => {
     accStatus: factory.chance("pickone", ["used", "closed", "suspended"])
   })
   context("find", () => {
-    before(done => {
+    before(function(done) {
+      this.timeout(5000)
       factory
         .createMany("account", 20)
         .then(() => done())
         .catch(done)
     })
-    after(done => {
-      Account.remove()
+    after(function(done) {
+      this.timeout(5000)
+      Account.deleteMany()
         .then(() => done())
         .catch(done)
     })

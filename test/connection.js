@@ -7,7 +7,9 @@ const database = process.env.DB_NAME || "state-machine-test"
 
 const debug = _debug("mongoose-state-machine:mongoose")
 
-const db = mongoose.createConnection(`mongodb://${host}:${port}/${database}`)
+const db = mongoose.createConnection(`mongodb://${host}:${port}/${database}`, {
+  useNewUrlParser: true
+})
 mongoose.Promise = require("bluebird")
 
 db.on("error", () => {

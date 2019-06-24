@@ -1,6 +1,6 @@
 {
   "name": "@rentspree/mongoose-state-machine",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A mongoose plugin fomr Javascript State Machine",
   "license": "MIT",
   "repository": "rentspree/mongoose-state-machine",

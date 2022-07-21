@@ -4,13 +4,13 @@
 [![NPM version](https://img.shields.io/npm/v/@rentspree/mongoose-state-machine.svg?style=flat-square)](https://npmjs.org/package/mongoose-state-machine)
 [![Build Status](https://img.shields.io/travis/rentspree/mongoose-state-machine/master.svg?style=flat-square)](https://travis-ci.org/rentspree/mongoose-state-machine) [![Coverage Status](https://img.shields.io/codecov/c/github/rentspree/mongoose-state-machine/master.svg?style=flat-square)](https://codecov.io/gh/rentspree/mongoose-state-machine/branch/master)
 
-A mongoose plugin fomr Javascript State Machine
+A mongoose plugin for Javascript State Machine
 
 The plugin base the module on [Javascript State Machine](https://github.com/jakesgordon/javascript-state-machine) which had done really well on creating a State-like environment for Javascript.
 
 This Plugin will merge Mongoose to Javascript State Machine! The goal is to make the API simple and allow a mongoose model to have the State machine API provided by Javascript State Machine.
 
-This plugin simply intercetp the Model Initilizer to include Javascript State Machine instance to the model.
+This plugin simply intercept the Model Initilizer to include Javascript State Machine instance to the model.
 
 ## Install
 
